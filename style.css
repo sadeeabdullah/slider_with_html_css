@@ -5,7 +5,7 @@
     max-height: 700px;
     position: relative;
     background: linear-gradient(to top, #000 40%, transparent); /* Gradient background */
-        text-align: center;
+    text-align: center;
     margin: 0 auto; /* Center the banner within its container */
 }
 
@@ -15,6 +15,7 @@
     object-fit: cover;
     margin: 0 auto;
 }
+
 .banner::before {
     content: "";
     position: absolute;
@@ -24,12 +25,11 @@
     height: 100%;
     background-image: linear-gradient(
         160deg,
-        rgba(243, 240, 240, 0.3) ,
-        rgba(10, 10, 10, 0.9) 
+        rgba(243, 240, 240, 0.3),
+        rgba(10, 10, 10, 0.9)
     );
     pointer-events: none; /* Allow clicks to pass through */
 }
-
 
 .content {
     position: absolute;
@@ -39,17 +39,84 @@
     text-align: center;
     color: white; /* Ensure content is visible over the image */
     background-color: transparent;
-    backdrop-filter: blur(10px) ;
+    backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(10px);
     padding: 40px;
     background-image: linear-gradient(
         120deg,
-        rgba(243, 240, 240, 0.3) ,
-        rgba(10, 10, 10, 0.3) 
+        rgba(243, 240, 240, 0.3),
+        rgba(10, 10, 10, 0.3)
     );
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 24px;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 10px;
+}
+
+.content button {
+    margin-top: 20px;
+    padding: 10px 15px;
+    background: linear-gradient(
+        to right,
+        #ff105f,
+        #ffad06
+    );
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.content button::before,
+.content button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    transition: background-color 1s;
+    border-radius: 10px;
+}
+
+.content button::before {
+    z-index: -2;
+}
+
+.content button::after {
+    z-index: -1;
+}
+
+.content button:hover::before,
+.content button:hover::after {
+    background: linear-gradient(
+        160deg,
+        rgba(226, 112, 112, 0.3),
+        rgba(78, 9, 9, 0.1)
+    );
+}
+
+.content button:hover {
+    animation: animateButton 5s ease-in-out infinite;
+}
+
+@keyframes animateButton {
+    0% {
+        color: red;
+        transform: scale(0.9);
+    }
+    50% {
+        color: blue;
+        transform: scale(1.1);
+    }
+    100% {
+        color: green;
+        transform: scale(1.3);
+    }
 }
