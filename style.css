@@ -117,9 +117,19 @@
 
 /* css for slider */
 .slider{
+    max-width: 1200px;
     width: 100%;
+    text-align: center;
+    margin: 0 auto; /* Center the banner within its container */
     border: 1px solid red;
     height: var(--height);
+    overflow: hidden;
+    mask-image: linear-gradient(
+        to right,
+        transparent,
+        #000 10% 90%,
+        transparent
+    );
 }
 .slider .list{
     display: flex;
