@@ -130,7 +130,20 @@
 .slider .list .item{
     width: var(--width);
     height: var(--height);
+    position: absolute;
+    left: 100%;
+    animation: autoRun 10s linear infinite;
 }
 .slider .list .item img{
     width: 100%;
+}
+
+/* animation for the list */
+@keyframes autoRun {
+    from{
+        left: 100%;
+    }
+    to{
+       left: calc(var(--width)* -1)
+    }
 }
